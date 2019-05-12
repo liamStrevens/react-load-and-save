@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import SingleDataRow from './SingleDataRow'
 import GridHeader from './GridHeader'
+import Loader from '../stylesComponents/Loader'
 import Axios from 'axios';
 import uuid from 'uuidv4'
 const headingStyle = {
@@ -12,11 +13,12 @@ const headingStyle = {
 }
 
 class Alldata extends Component {
-    state = {data:[]}
+    state = {data:[], loading:false}
 
     componentDidMount() {
+        this.setState({loading:true})
         Axios.get("https://athena-7.herokuapp.com/ancients.json").then((response) =>(
-          this.setState({data:response.data})
+          this.setState({data:response.data, loading:false})
         ))
     }
 
@@ -28,12 +30,13 @@ class Alldata extends Component {
               Load all Data
               </header>
               <GridHeader/>
-              <div style={headingStyle}>
+              {this.state.loading && <Loader/>}
+              {!this.state.loading && <div style={headingStyle}>
                 {this.state.data.map((item) => (
                   <SingleDataRow key={uuid()} item={item}/>
                   ))
                 }
-              </div>
+              </div>}
             </div>
           </Fragment>)
         
