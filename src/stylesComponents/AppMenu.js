@@ -3,6 +3,7 @@ import React from 'react';
 import { Layout } from 'antd';
 import { Link } from "react-router-dom";
 import {Logo} from './Logo'
+
 const { Header} = Layout;
 const setMenuItemOnLoad = () => {
   const url_string = window.location.href
@@ -16,9 +17,6 @@ class AppMenu extends React.Component {
   }
 
   handleClick = (e) => {
-    console.log(setMenuItemOnLoad());
-    console.log(process.env.PUBLIC_URL);
-
     this.setState({
       current: e.key,
     });
@@ -37,9 +35,7 @@ class AppMenu extends React.Component {
         <Menu.Item key="1" onClick={this.handleClick}><Link to="/alldata"/>All Data</Menu.Item>
         <Menu.Item key="2" onClick={this.handleClick}><Link to="/search"/>Search</Menu.Item>
         <Menu.Item key="3" onClick={this.handleClick}><Link to="/error"/>Error</Menu.Item>
-        
       </Menu>
-      
     </Header>
 
     );
