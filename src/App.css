@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+
+
+.App-header {
+  background-color: #828283;
+  min-height: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(12, 11, 11);
+}
+
+.headerLogo {
+  height: 64px;
+  width: auto;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.3);
+  margin: 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+}
+.logoImg {
+  vertical-align: baseline
+}
